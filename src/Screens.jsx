@@ -173,7 +173,7 @@ export function PlayScreen({ end }) {
             maxWidth="320px"
             width="100%"
           >
-            {getTiles(6).map((tile, i) => (
+            {getTiles(16).map((tile, i) => (
               <Tile key={i} flip={() => flip(i)} {...tile} />
             ))}
           </Flex>
