@@ -52,7 +52,7 @@ export function Tile({ content: Content, flip, state }) {
               width: "55px",
               height: "55px",
               verticalAlign: "top",
-              color: '"#c6f6d6"',
+              color: "#c6f6d6",
             }}
           />
         </Flex>
