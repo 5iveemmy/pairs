@@ -20,6 +20,7 @@ export const possibleTileContents = [
 export function StartScreen({ start }) {
   return (
     <Box>
+      <Text>test commit</Text>
       <Button onClick={start}>Play</Button>
     </Box>
   );
