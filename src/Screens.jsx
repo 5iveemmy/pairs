@@ -1,7 +1,7 @@
 import { useState } from "react";
 import confetti from "canvas-confetti";
 import * as icons from "react-icons/gi";
-import { Box, Button } from "@chakra-ui/react";
+import { Box, Button, Text, Flex, HStack } from "@chakra-ui/react";
 import { Tile } from "./Tile";
 
 export const possibleTileContents = [
@@ -19,10 +19,45 @@ export const possibleTileContents = [
 
 export function StartScreen({ start }) {
   return (
-    <Box>
-      <Text>test commit</Text>
-      <Button onClick={start}>Play</Button>
-    </Box>
+    <>
+      <Flex justifyContent="center" alignItems="center" padding="20px">
+        <Flex
+          bgColor="#e6fffa"
+          height="350px"
+          width="360px"
+          alignItems="center"
+          flexDir="column"
+          borderRadius="20px"
+          paddingTop="5em"
+          gap="1.5rem"
+        >
+          <Text color="#31979598" fontSize="30px" fontWeight="700">
+            Memory
+          </Text>
+          <Text color="#369a98" textAlign="center">
+            Flip over tiles looking for pairs
+          </Text>
+          <Box>
+            <Button
+              _hover={{
+                backgroundColor: "normal",
+              }}
+              _active={{
+                backgroundColor: "normal",
+              }}
+              onClick={start}
+              bgColor="#399795"
+              bg="linear-gradient(to bottom, #399795, #265f5b)"
+              width="100px"
+              borderRadius="30px"
+              color="#ffffff"
+            >
+              Play
+            </Button>
+          </Box>
+        </Flex>
+      </Flex>
+    </>
   );
 }
 
@@ -107,12 +142,43 @@ export function PlayScreen({ end }) {
 
   return (
     <>
-      <Box>
-        {getTiles(6).map((tile, i) => (
-          <Tile key={i} flip={() => flip(i)} {...tile} />
-        ))}
-      </Box>
-      {tryCount}
+      <HStack justifyContent="center" py="20px" gap="2">
+        <Text textAlign="center" color="#2f855b">
+          Tries
+        </Text>
+        <HStack
+          p="0px 5px"
+          bgColor="#9ae6b4"
+          alignItems="center"
+          borderRadius="5px"
+          justifyContent="center"
+        >
+          <Text color="#368b61">{tryCount}</Text>
+        </HStack>
+      </HStack>
+      <Flex justifyContent="center" alignItems="center">
+        <Flex
+          bgColor="#f0fff4"
+          padding="20px"
+          borderRadius="20px"
+          justifyContent="center"
+          alignItems="center"
+          gap="1.5rem"
+        >
+          <Flex
+            gap="13px"
+            flexWrap="wrap"
+            justifyContent="space-between"
+            alignItems="center"
+            maxWidth="320px"
+            width="100%"
+          >
+            {getTiles(6).map((tile, i) => (
+              <Tile key={i} flip={() => flip(i)} {...tile} />
+            ))}
+          </Flex>
+        </Flex>
+      </Flex>
     </>
   );
 }
